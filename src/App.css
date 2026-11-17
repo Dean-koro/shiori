@@ -537,17 +537,6 @@ select optgroup {
   text-align: center;
 }
 
-.reader-viewport {
-  flex: 1;
-  overflow: auto;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
 .page-number-badge {
   position: absolute;
   bottom: 8px;
@@ -609,21 +598,6 @@ select optgroup {
   color: var(--muted);
   min-width: 75px;
   text-align: right;
-}
-
-.pages-container {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-  align-items: flex-start;
-  margin: auto 0;
-  min-width: min-content;
-}
-
-.pages-container.mode-scroll {
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
 }
 
 .pages-container.mode-single,
@@ -1071,4 +1045,28 @@ select optgroup {
     flex-direction: column;
     align-items: stretch;
   }
+}
+
+.reader-viewport {
+  flex: 1;
+  overflow: auto;
+  overflow-anchor: none;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.pages-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  margin: auto;
+}
+
+.pages-container.mode-scroll {
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }

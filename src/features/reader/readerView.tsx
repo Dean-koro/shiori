@@ -288,10 +288,14 @@ export function ReaderView({ book, onBack, onSwitchBook }: ReaderViewProps) {
 
       if (viewportRef.current) {
         if (viewMode === 'scroll') {
-          const el = viewportRef.current.querySelector(
-            `[data-page="${clamped}"]`
-          ) as HTMLElement | null;
-          el?.scrollIntoView({ behavior: 'auto' });
+          if (clamped === 1) {
+            viewportRef.current.scrollTop = 0;
+          } else {
+            const el = viewportRef.current.querySelector(
+              `[data-page="${clamped}"]`
+            ) as HTMLElement | null;
+            el?.scrollIntoView({ behavior: 'auto', block: 'start' });
+          }
         } else {
           viewportRef.current.scrollTop = 0;
         }
@@ -358,6 +362,14 @@ export function ReaderView({ book, onBack, onSwitchBook }: ReaderViewProps) {
       currentScrollOffsetRef.current = Number((container.scrollTop / maxScroll).toFixed(4));
 
       if (viewMode === 'scroll') {
+        if (container.scrollTop <= 10) {
+          if (currentPage !== 1) {
+            setCurrentPage(1);
+            setPageInput('1');
+          }
+          return;
+        }
+
         const rect = container.getBoundingClientRect();
         const hitEl = document.elementFromPoint(
           rect.left + rect.width / 2,
