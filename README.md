@@ -48,7 +48,7 @@ Una vez instalada, la aplicación busca actualizaciones automáticamente al abri
 Requisitos previos: Node.js 20+, Rust (`rustup`) y las dependencias de sistema de Tauri v2 (en Arch Linux: `webkit2gtk-4.1`, `librsvg`, `base-devel`).
 
 ```bash
-git clone [https://github.com/dean-koro/shiori.git](https://github.com/dean-koro/shiori.git)
+git clone https://github.com/dean-koro/shiori.git
 cd shiori
 npm install
 npm run tauri dev
@@ -56,3 +56,7 @@ npm run tauri dev
 ## Licencia
 
 Distribuido bajo la licencia [MIT](LICENSE).
+
+## Firma de código
+
+Los instaladores de Windows cuentan con firma digital gratuita proporcionada por [SignPath.io](https://signpath.io/), mediante un certificado de [SignPath Foundation](https://signpath.org/). La aplicación funciona completamente offline y no recopila ni envía datos personales.
